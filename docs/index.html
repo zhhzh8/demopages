@@ -3,70 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💀 Крутые скелеты</title>
+<title>💀 Тряска скелетов 💀</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background: black;
     color: white;
+    font-family: Arial, sans-serif;
     text-align: center;
-}
-
-h1 {
-    margin-top: 30px;
-    font-size: 42px;
 }
 
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     padding: 40px;
 }
 
-.skeleton-card {
-    background: #111;
-    padding: 15px;
-    border-radius: 15px;
-    transition: transform 0.2s ease;
+.skeleton {
+    cursor: pointer;
 }
 
-.skeleton-card:hover {
-    transform: scale(1.07) rotate(-1deg);
+.skeleton img {
+    max-width: 240px;
+    border-radius: 12px;
 }
 
-.skeleton-card img {
-    max-width: 250px;
-    border-radius: 10px;
+.shake {
+    animation: shake 0.25s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    25% { transform: translate(3px, -3px) rotate(-2deg); }
+    50% { transform: translate(-3px, 3px) rotate(2deg); }
+    75% { transform: translate(3px, 3px) rotate(-1deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>💀 галерея крутых скелетов 💀</h1>
+<h1>💀 кликни скелета чтобы он затрясся 💀</h1>
 
 <div class="gallery">
 
-<div class="skeleton-card">
-<img src="https://i.pinimg.com/originals/ca/a2/4e/caa24ef9fd5581e70ffaa71d0a4d46f6.gif">
+<div class="skeleton" onclick="toggleShake(this)">
+<img src="https://media.giphy.com/media/3orieZDAp40AhhOOsg/giphy.gif">
 <p>танцующий скелет</p>
 </div>
 
-<div class="skeleton-card">
-<img src="https://files.shapes.inc/api/files/avatar_65a23618-74f4-406c-98c0-aa1f87d97c72.png">
-<p>скелет</p>
+<div class="skeleton" onclick="toggleShake(this)">
+<img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif">
+<p>скелет на вайбе</p>
 </div>
 
-<div class="skeleton-card">
-<img src="shkelete.png">
-<p>шкилет</p>
+<div class="skeleton" onclick="toggleShake(this)">
+<img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif">
+<p>шкилет абсолютный</p>
 </div>
 
 </div>
+
+<script>
+function toggleShake(element) {
+    element.classList.toggle("shake");
+}
+</script>
 
 </body>
 </html>
